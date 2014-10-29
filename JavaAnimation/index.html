@@ -30,12 +30,13 @@
 }
 #demo1, #demo2
 {
-	display:inline;
 	float:left;
 	height:200px;
+	width:600px;
 }
 #demo img
 {
+	float:left;
 	max-height:100%;
 	max-width:100%;
 }	
@@ -66,9 +67,9 @@
 				<div id="demo">
 					<div id="indemo">
 						<div id ="demo1">
-							<img src="images/濠濮间.jpg" />
-							<img src="images/白塔.jpg" />
-							<img src="images/北海-5.jpg" />
+							<img src="images/banner1.jpg" />
+							<img src="images/banner2.jpg" />
+							<img src="images/banner3.jpg" />
 						</div>
 						<div id="demo2" />
 					</div>
@@ -87,7 +88,7 @@
 	</table>
 	<script type="text/javascript">
 		var MyMar;
-		var speed = 10;
+		var speed = 50;
 		var tab = document.getElementById("demo");
 		var tab1 = document.getElementById("demo1");
 		var tab2 = document.getElementById("demo2");
@@ -95,7 +96,7 @@
 		function Marquee()
 		{
 			if(tab2.offsetWidth-tab.scrollLeft<=0) tab.scrollLeft-=tab1.offsetWidth;
-			else tab.scrollLeft++;
+			else tab.scrollLeft+=5;
 		}
 		myMar = setInterval(Marquee, speed);
 		tab.onMouseOver = function() {clearInterval(myMar);}
