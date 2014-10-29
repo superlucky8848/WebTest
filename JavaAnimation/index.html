@@ -1,12 +1,105 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>"Javascript Animation Test"</title>
-		<meta http-equiv="content-type"  content="text/html;charset=utf-8" />
-	</head>
+		<title>Javascript Animation Test</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script type="text/javascript">
+			
+		</script>
+	    <style type="text/css">
+<!--
+#scrollBanner
+{
+	position:relative;
+	float:left;
+	overflow:hidden;
+	background:#00CC33;
+}
+#demo
+{
+	background:#006600;
+	overflow:hidden;
+	width:200px;
+	height:200px;
+}
+#indemo
+{
+	float:left;
+	height:200px;
+	width:800%;
+}
+#demo1, #demo2
+{
+	display:inline;
+	float:left;
+	height:200px;
+}
+#demo img
+{
+	max-height:100%;
+	max-width:100%;
+}	
+-->
+</style>
+</head>
 	<body>
-		<h1>"Test"</h1>
+	<div class="imgBox" style="height:200px; width:200px"><img src="images/白塔.jpg" style="max-height:200px; max-width:200px" /></div>
+	<table width="800" border="1" cellspacing="0" cellpadding="0" align="center">
+		<tr>
+			<td height="100" colspan="3" align="center" valign="middle">aaa</td>
+		</tr>
+		<tr>
+			<td height="20" colspan="3" align="center" valign="middle">
+				<table width="800" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="20%" align="center" valign="middle" onMouseOver="navMouseOver(this)">page1</td>
+						<td width="20%" align="center" valign="middle" onMouseOver="navMouseOver(this)">page2</td>
+						<td width="20%" align="center" valign="middle" onMouseOver="navMouseOver(this)">page3</td>
+						<td width="20%" align="center" valign="middle" onMouseOver="navMouseOver(this)">page4</td>
+						<td width="20%" align="center" valign="middle" onMouseOver="navMouseOver(this)">page5</td>
+					</tr>
+			  </table>			
+		  </td>
+		</tr>
+		<tr>
+			<td id="scrollBanner" width="200" height="200" align="center" valign="middle">
+				<div id="demo">
+					<div id="indemo">
+						<div id ="demo1">
+							<img src="images/濠濮间.jpg" />
+							<img src="images/白塔.jpg" />
+							<img src="images/北海-5.jpg" />
+						</div>
+						<div id="demo2" />
+					</div>
+				</div>
+			</td>
+			<td width="400" align="center" valign="middle"> Middle </td>
+			<td width="200" height="200" align="center" valign="middle">
+				<img src="images/白塔.jpg" />
+				<img src="images/北海-5.jpg" />
+				<img src="images/濠濮间.jpg" />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center" valign="middle">bottom</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		var MyMar;
+		var speed = 10;
+		var tab = document.getElementById("demo");
+		var tab1 = document.getElementById("demo1");
+		var tab2 = document.getElementById("demo2");
+		tab2.innerHTML = tab1.innerHTML;
+		function Marquee()
+		{
+			if(tab2.offsetWidth-tab.scrollLeft<=0) tab.scrollLeft-=tab1.offsetWidth;
+			else tab.scrollLeft++;
+		}
+		myMar = setInterval(Marquee, speed);
+		tab.onMouseOver = function() {clearInterval(myMar);}
+		tab.onMouseOut = function() {myMar = setInterval(Marquee, speed);}
+	</script>
 	</body>
 </html>
