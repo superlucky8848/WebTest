@@ -1,17 +1,13 @@
-﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>Javascript Animation Test</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<script type="text/javascript">
-			
-		</script>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	    <style type="text/css">
 <!--
 #scrollBanner
 {
 	position:relative;
-	float:left;
 	overflow:hidden;
 	background:#00CC33;
 }
@@ -42,65 +38,149 @@
 }	
 -->
 </style>
-</head>
-	<body>
-	<div class="imgBox" style="height:200px; width:200px"><img src="images/白塔.jpg" style="max-height:200px; max-width:200px" /></div>
-	<table width="800" border="1" cellspacing="0" cellpadding="0" align="center">
-		<tr>
-			<td height="100" colspan="3" align="center" valign="middle">aaa</td>
-		</tr>
-		<tr>
-			<td height="20" colspan="3" align="center" valign="middle">
-				<table width="800" border="0" cellspacing="0" cellpadding="0">
-					<tr>
-						<td width="20%" align="center" valign="middle" onMouseOver="navMouseOver(this)">page1</td>
-						<td width="20%" align="center" valign="middle" onMouseOver="navMouseOver(this)">page2</td>
-						<td width="20%" align="center" valign="middle" onMouseOver="navMouseOver(this)">page3</td>
-						<td width="20%" align="center" valign="middle" onMouseOver="navMouseOver(this)">page4</td>
-						<td width="20%" align="center" valign="middle" onMouseOver="navMouseOver(this)">page5</td>
-					</tr>
-			  </table>			
-		  </td>
-		</tr>
-		<tr>
-			<td id="scrollBanner" width="200" height="200" align="center" valign="middle">
-				<div id="demo">
-					<div id="indemo">
-						<div id ="demo1">
-							<img src="images/banner1.jpg" />
-							<img src="images/banner2.jpg" />
-							<img src="images/banner3.jpg" />
+        <script type="text/JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_nbGroup(event, grpName) { //v6.0
+  var i,img,nbArr,args=MM_nbGroup.arguments;
+  if (event == "init" && args.length > 2) {
+    if ((img = MM_findObj(args[2])) != null && !img.MM_init) {
+      img.MM_init = true; img.MM_up = args[3]; img.MM_dn = img.src;
+      if ((nbArr = document[grpName]) == null) nbArr = document[grpName] = new Array();
+      nbArr[nbArr.length] = img;
+      for (i=4; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+        if (!img.MM_up) img.MM_up = img.src;
+        img.src = img.MM_dn = args[i+1];
+        nbArr[nbArr.length] = img;
+    } }
+  } else if (event == "over") {
+    document.MM_nbOver = nbArr = new Array();
+    for (i=1; i < args.length-1; i+=3) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = (img.MM_dn && args[i+2]) ? args[i+2] : ((args[i+1])? args[i+1] : img.MM_up);
+      nbArr[nbArr.length] = img;
+    }
+  } else if (event == "out" ) {
+    for (i=0; i < document.MM_nbOver.length; i++) {
+      img = document.MM_nbOver[i]; img.src = (img.MM_dn) ? img.MM_dn : img.MM_up; }
+  } else if (event == "down") {
+    nbArr = document[grpName];
+    if (nbArr)
+      for (i=0; i < nbArr.length; i++) { img=nbArr[i]; img.src = img.MM_up; img.MM_dn = 0; }
+    document[grpName] = nbArr = new Array();
+    for (i=2; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = img.MM_dn = (args[i+1])? args[i+1] : img.MM_up;
+      nbArr[nbArr.length] = img;
+  } }
+}
+//-->
+        </script>
+	</head>
+	<body onload="MM_preloadImages('images/banner3.jpg','images/banner2.jpg','images/北海-1.jpg','images/白玉佛.jpg','images/北海-2.jpg')">
+		<table width="800" border="1" cellspacing="0" cellpadding="0" align="center">
+			<tr>
+				<td height="100" colspan="3" align="center" valign="middle">aaa</td>
+			</tr>
+			<tr>
+				<td height="25" colspan="3" align="center" valign="middle">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="20%" align="center" valign="middle">
+								<a href="page1.html">
+							  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" name="Page1" width="107" height="18" id="Page1" title="swith">
+                                <param name="BGCOLOR" value="#FFFFFF" />
+                                <param name="movie" value="button1.swf" />
+                                <param name="quality" value="high" />
+                                <embed src="button1.swf" width="107" height="18" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" bgcolor="#FFFFFF" name="Page1" ></embed>
+                              </object>
+							  </a>
+							</td>
+							<td width="20%" align="center" valign="middle"><a href="page1.html">page2</a></td>
+							<td width="20%" align="center" valign="middle"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="100" height="22" title="aaa">
+                              <param name="movie" value="button2.swf" />
+                              <param name="quality" value="high" />
+                              <embed src="button2.swf" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="100" height="22" ></embed>
+                            </object></td>
+							<td width="20%" align="center" valign="middle">page4</td>
+							<td width="20%" align="center" valign="middle">page5</td>
+						</tr>
+				  </table>			
+			  </td>
+			</tr>
+			<tr>
+				<td id="scrollBanner" width="200" height="200" align="center" valign="middle">
+					<div id="demo">
+						<div id="indemo">
+							<div id ="demo1">
+								<img src="images/banner1.jpg" />
+								<img src="images/banner2.jpg" />
+								<img src="images/banner3.jpg" />
+							</div>
+							<div id="demo2" />
 						</div>
-						<div id="demo2" />
 					</div>
-				</div>
-			</td>
-			<td width="400" align="center" valign="middle"> Middle </td>
-			<td width="200" height="200" align="center" valign="middle">
-				<img src="images/白塔.jpg" />
-				<img src="images/北海-5.jpg" />
-				<img src="images/濠濮间.jpg" />
-			</td>
-		</tr>
-		<tr>
-			<td colspan="3" align="center" valign="middle">bottom</td>
-		</tr>
-	</table>
-	<script type="text/javascript">
-		var MyMar;
-		var speed = 50;
-		var tab = document.getElementById("demo");
-		var tab1 = document.getElementById("demo1");
-		var tab2 = document.getElementById("demo2");
-		tab2.innerHTML = tab1.innerHTML;
-		function Marquee()
-		{
-			if(tab2.offsetWidth-tab.scrollLeft<=0) tab.scrollLeft-=tab1.offsetWidth;
-			else tab.scrollLeft+=5;
-		}
-		myMar = setInterval(Marquee, speed);
-		tab.onMouseOver = function() {clearInterval(myMar);}
-		tab.onMouseOut = function() {myMar = setInterval(Marquee, speed);}
-	</script>
+				</td>
+				<td width="400" align="center" valign="middle"> Middle </td>
+				<td width="200" height="200" align="center" valign="middle">
+				<!--
+					<img src="images/白塔.jpg" />
+					<img src="images/北海-5.jpg" />
+					<img src="images/濠濮间.jpg" />-->
+					<marquee direction="up" behavior="scroll">
+						aaa <br/>
+						bbb <br/>
+						aaa <br/>
+						bbb <br/>
+						aaa <br/>
+						bbb <br/>
+						aaa <br/>
+						bbb <br/>
+						aaa <br/>
+						bbb <br/>
+					</marquee>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center" valign="middle">bottom</td>
+			</tr>
+		</table>
+	<p>&nbsp;    </p>
+		<table border="0" cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><a href="page1.html" target="_top" onclick="MM_nbGroup('down','group1','page1','images/banner3.jpg',1)" onmouseover="MM_nbGroup('over','page1','images/banner2.jpg','images/banner3.jpg',1)" onmouseout="MM_nbGroup('out')"><img src="images/banner1.jpg" alt="aaaa" name="page1" width="200" height="200" border="0" id="page1" onload="" /></a></td>
+		    <td><a href="page1.html" target="_top" onclick="MM_nbGroup('down','group1','page2','images/北海-1.jpg',1)" onmouseover="MM_nbGroup('over','page2','images/白玉佛.jpg','images/北海-2.jpg',1)" onmouseout="MM_nbGroup('out')"><img src="images/白塔.jpg" alt="哈哈哈" name="page2" width="200" height="200" border="0" id="page2" onload="" /></a></td>
+	      </tr>
+    </table>
+		  <script type="text/javascript">
+			var MyMar;
+			var speed = 50;
+			var tab = document.getElementById("demo");
+			var tab1 = document.getElementById("demo1");
+			var tab2 = document.getElementById("demo2");
+			tab2.innerHTML = tab1.innerHTML;
+			function Marquee()
+			{
+				if(tab2.offsetWidth<=tab.scrollLeft) tab.scrollLeft-=tab1.offsetWidth;
+				else tab.scrollLeft+=5;
+			}
+			myMar = setInterval(Marquee, speed);
+			tab.onmouseover = function() {clearInterval(myMar);}
+			tab.onmouseout = function() {myMar = setInterval(Marquee, speed);}
+		</script>
+    </p>
 	</body>
 </html>

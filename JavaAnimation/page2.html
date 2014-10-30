@@ -4,23 +4,32 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
 <style type="text/css">
+#navTable
+{
+border-bottom:2px;
+border-bottom-style:solid;
+border-bottom-color:#0066FF;
+}
 #scrollTable
 {
-overflow:hidden;
-background:#009900;
-}
-#demo
-{
-	background:#006600;
 	overflow:hidden;
 	width:200px;
 	height:200px;
 }
+#demo
+{
+	overflow:hidden;
+	width:200px;
+	height:200px;
+	border:3px;
+	border-style:solid;
+	border-color:#006600;
+}
 #indemo
 {
-	float:left;
-	height:200px;
-	width:800%;
+float:left;
+width:800%;
+height:200px;
 }
 #demo1, #demo2
 {
@@ -31,32 +40,31 @@ background:#009900;
 #demo img
 {
 	float:left;
-	max-height:100%;
 	max-width:100%;
-}	
-td.navBar:hover
+	max-height:100%;
+}
+td.nav:hover
 {
-	background:#00CC00;
+	background:#3333FF;
 	color:#FFFFFF;
 	font-weight:bold;
 }
 </style>
 </head>
+
 <body>
 <table width="800" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td colspan="3" height="200">
-		
-	</td>
+    <td colspan="3" height="150">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="3" height="30">
-		<table width="800" height="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+    <td colspan="3" height="50">
+		<table width="800" height="100%" border="0" cellpadding="0" cellspacing="0" id="navTable">
 		  <tr>
-			<td class="navBar" width="25%" align="center">Page1</td>
-			<td class="navBar" width="25%" align="center">Page2</td>
-			<td class="navBar" width="25%" align="center">Page3</td>
-			<td class="navBar" width="25%" align="center">Page4</td>
+			<td class="nav" align="center" width="25%">Page1</td>
+			<td class="nav" align="center" width="25%">Page2</td>
+			<td class="nav" align="center" width="25%">Page3</td>
+			<td class="nav" align="center" width="25%">Page4</td>
 		  </tr>
 	  </table>
 	</td>
@@ -82,20 +90,21 @@ td.navBar:hover
   </tr>
 </table>
 <script type="text/javascript">
-	var MyTimer;
+	var MyMar;
 	var speed=50;
+	var step=5;
 	var tab = document.getElementById("demo");
 	var tab1 = document.getElementById("demo1");
 	var tab2 = document.getElementById("demo2");
 	tab2.innerHTML = tab1.innerHTML;
-	function doScroll()
+	function Marquee()
 	{
-		if(tab2.offsetWidth <= tab.scrollLeft) tab.scrollLeft-=tab1.offsetWidth;
-		else tab.scrollLeft+=5;
+		if(tab2.offsetWidth<=tab.scrollLeft) tab.scrollLeft-=tab1.offsetWidth;
+		else tab.scrollLeft+=step;
 	}
-	MyTimer = setInterval(doScroll, speed);
-	tab.onmouseover = function() {clearInterval(MyTimer);}
-	tab.onmouseout = function() {MyTimer = setInterval(doScroll, speed);}
+	myMar = setInterval(Marquee, speed);
+	tab.onmouseover = function() {clearInterval(myMar);}
+	tab.onmouseout = function() {myMar = setInterval(Marquee, speed);}
 </script>
 </body>
 </html>
